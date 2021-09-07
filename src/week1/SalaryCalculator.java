@@ -7,7 +7,7 @@ public class SalaryCalculator {
     public static void main(String[] args){
 
     double hourlySalary = 25;
-    double totalWorkHours = 0;
+    double totalWorkHours;
     double totalSalary = 0;
     double weekHours, weekendHours, extraWeekHours;
 
@@ -19,25 +19,36 @@ public class SalaryCalculator {
     weekendHours = scanner.nextInt();
     scanner.close();
 
+
+
     totalWorkHours = weekendHours + weekHours;
 
-    if(totalWorkHours >= 50 && weekHours >= 40)
+    if(weekHours >= 40 && weekendHours >= 10)
     {
         extraWeekHours = weekHours - 40;
         weekHours = weekHours - extraWeekHours;
-        totalSalary = (weekHours * 25) + (weekendHours * 25) * 2 + (extraWeekHours * 25) * 1.5;
+        totalSalary = (weekHours * hourlySalary) + (weekendHours * hourlySalary) * 2 + (extraWeekHours * hourlySalary) * 1.5;
         totalSalary = totalSalary + 500;
     }
 
-    else if(totalWorkHours >= 50 && weekHours <= 40){
+    /*else if(totalWorkHours > 50 && weekHours == 40){
             totalSalary = (weekHours * 25) + (weekendHours * 25) * 2;
-            totalWorkHours = totalWorkHours + 500;
+            totalSalary = totalSalary + 500;
         }
 
-    else if(totalWorkHours <= 50 && weekHours <= 40){
+     */
+
+    else if(totalWorkHours < 50 && weekHours <= 40){
         totalSalary = (weekHours * 25) + (weekendHours * 25) * 2;
     }
-        System.out.println("Your total Salary is: " + totalSalary);
+
+        if(weekHours < 0 || weekendHours < 0)
+            System.out.println("Please enter proper values");
+
+        else if(weekHours > 65 || weekendHours > 65 )
+            System.out.println("Please enter proper values");
+
+        else System.out.println("Your total Salary is: " + totalSalary);
     }
 
 }
