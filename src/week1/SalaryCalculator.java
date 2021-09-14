@@ -1,5 +1,8 @@
 package week1;
 
+import week2.YearsWorked;
+
+import java.time.Year;
 import java.util.Scanner;
 
 public class SalaryCalculator {
@@ -17,7 +20,7 @@ public class SalaryCalculator {
 
     System.out.println("Please enter the hours you have worked in this weekend");
     weekendHours = scanner.nextInt();
-    scanner.close();
+
 
 
 
@@ -31,6 +34,7 @@ public class SalaryCalculator {
         totalSalary = totalSalary + 500;
     }
 
+
     /*else if(totalWorkHours > 50 && weekHours == 40){
             totalSalary = (weekHours * 25) + (weekendHours * 25) * 2;
             totalSalary = totalSalary + 500;
@@ -38,7 +42,7 @@ public class SalaryCalculator {
 
      */
 
-    else if(totalWorkHours < 50 && weekHours <= 40){
+    else if(weekHours <= 40){
         totalSalary = (weekHours * 25) + (weekendHours * 25) * 2;
     }
 
@@ -49,6 +53,16 @@ public class SalaryCalculator {
             System.out.println("Please enter proper values");
 
         else System.out.println("Your total Salary is: " + totalSalary);
+
+        YearsWorked years = new YearsWorked();
+        years.SalaryRaise(totalSalary);
+
+        scanner.close();
     }
 
+
+
+
 }
+
+
